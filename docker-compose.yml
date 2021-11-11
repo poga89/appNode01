@@ -3,7 +3,7 @@ version: "3.8"
 services: 
   app:
     image: node
-    container_name: braider/appNode01
+    container_name: braider/appnode01:v3
     ports: 
       - "4000:4000"
     volumes: 
@@ -19,7 +19,7 @@ services:
     
   db:
     env_file: ./.env
-    image: mysql:5.7
+    image: braider/mysql_person:v2
     container_name: mysql
     restart: unless-stopped
     ports: 
@@ -27,7 +27,6 @@ services:
     logging:
       driver: none
     environment: 
-      - MYSQL_DATABASE=dblinks
       - MYSQL_USER="root"
       - MYSQL_PASSWORD="admin"
       - MYSQL_ROOT_PASSWORD="admin"
